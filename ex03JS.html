@@ -7,8 +7,8 @@
     <title>Document</title>
 
     <script>
-        let altura = prompt("Digite a altura: ");
-        let largura = prompt("Digite a largura:");
+        const altura = Math.abs(prompt("Digite a altura: "));
+        const largura = Math.abs(prompt("Digite a largura:"));
 
         function areaRetangulo(altura, largura) {
             return altura * largura;
