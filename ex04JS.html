@@ -7,8 +7,8 @@
     <title>Document</title>
 
     <script>
-        let peso = prompt("Digite o seu peso: ");
-        let altura = prompt("Digite a sua altura: ");
+        let peso = Math.abs(prompt("Digite o seu peso: "));
+        let altura = Math.abs(prompt("Digite a sua altura: "));
 
         function getIMC(peso, altura) {
             let imc = peso / (altura * altura);
