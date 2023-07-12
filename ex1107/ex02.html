@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const preco = Math.abs(prompt("Digite o preço do produto: "));
+
+        function calcularDesconto(preco) {
+            let porcDesc = 10;
+            let desconto = preco * (porcDesc / 100);
+            
+            return "R$" + (preco - desconto);
+        }
+
+        alert(calcularDesconto(preco));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

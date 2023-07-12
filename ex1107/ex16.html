@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var maiorNumero = -Infinity;
+
+        var numero;
+        do {
+            numero = parseInt(prompt("Digite um número inteiro (ou zero para sair):"));
+
+            if (numero > maiorNumero) {
+                maiorNumero = numero;
+            }
+        } while (numero !== 0);
+
+        alert("O maior número digitado é: " + maiorNumero);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
