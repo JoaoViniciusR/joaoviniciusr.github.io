@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const algo = prompt("Digite algo:");
+        const letra = prompt("Digite a letra que deseja verificar a quantidade: ");
+
+        function contarQtdeLetra(algo, letra) {
+            let qtde = 0;
+            for(var i = 0; i < algo.length; i++) {
+                if(algo[i] == letra) {
+                    qtde++;
+                }
+            }
+            return "a quantidade de letras é de: " + qtde;
+        }   
+        alert(contarQtdeLetra(algo, letra));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        let nota, notaSoma;
+
+        for(var i = 0; i < 3; i++) {
+            do{
+                nota = Math.abs(prompt("Digite a " + i + "ª nota do aluno:"));
+                break;
+            }while(nota >= 0 && nota <= 10)
+            notaSoma += nota;
+        }
+        let media = notaSoma / 3;
+        if(media >= 7) {
+            alert("Aprovado");
+        } else {
+            alert("Reprovado");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

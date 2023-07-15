@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+
+        var palpite;
+
+        var tentativas = 0;
+
+        do {
+            palpite = parseInt(prompt("Digite um número de 1 a 100:"));
+
+            if (palpite > numeroAleatorio) {
+                alert("O número é menor!");
+            } else if (palpite < numeroAleatorio) {
+                alert("O número é maior!");
+            }
+
+            tentativas++;
+        } while (palpite !== numeroAleatorio);
+
+        alert("Parabéns, você acertou o número " + numeroAleatorio + " em " + tentativas + " tentativas!");
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
