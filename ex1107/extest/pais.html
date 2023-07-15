@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        select {
+            width: 300px;
+            padding: 5px;
+        }
+
+        #country-info {
+            margin-top: 20px;
+        }
+
+        #country-image {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectField = document.getElementById("id_country");
+            selectField.addEventListener("change", getPais);
+
+            function getPais() {
+                const url = `https://restcountries.com/v3.1/name/${selectField.value}?fullText=true`;
+
+                fetch(url)
+                    .then((resultRequest) => {
+                        return resultRequest.json();
+                    })
+                    .then((jsonRequest) => {
+                        document.getElementById("id_pais").style.display = "block";
+                        document.getElementById("name").innerText = jsonRequest[0].altSpellings;
+                        document.getElementById("capital").innerText = jsonRequest[0].capital;
+                        document.getElementById("continente").innerText = jsonRequest[0].continents;
+
+                        let indiceMoeda;
+                        for (key in jsonRequest[0].currencies) {
+                            indiceMoeda = key;
+                        }
+
+                        document.getElementById("moeda").innerText = jsonRequest[0].currencies[indiceMoeda].name;
+
+                        document.getElementById("bandeira").src = jsonRequest[0].flags.svg;
+
+                        carregarIFrame(selectField.value);
+                    });
+            }
+
+            function carregarIFrame(country) {
+                document.getElementById("iframe_images").style.display = "block";
+                const url = `https://www.google.com.br/search?q=${country}+flag`;
+                const iframe = document.querySelector("#iframe_images");
+                iframe.src = url;
+            }
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <h1>Informações do País</h1>
+
+    <label for="id_country">País:</label>
+    <select id="id_country">
+        <option value="">Selecione...</option>
+        <option value="Brazil">Brasil</option>
+        <option value="United States">Estados Unidos</option>
+        <option value="Canada">Canadá</option>
+        <option value="United Kingdom">Reino Unido</option>
+        <option value="Japan">Japão</option>
+    </select>
+
+    <div id="id_pais">
+        <h2 id="name"></h2>
+        <p><strong>Capital:</strong> <span id="capital"></span></p>
+        <p><strong>Continente:</strong> <span id="continente"></span></p>
+        <p><strong>Moeda:</strong> <span id="moeda"></span></p>
+        <img id="bandeira" src="" alt="Bandeira do país">
+    </div>
+
+    <iframe id="iframe_images" src="" frameborder="0"></iframe>
+
+</body>
+
+</html>
